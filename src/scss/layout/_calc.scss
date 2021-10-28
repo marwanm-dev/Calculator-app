@@ -4,11 +4,17 @@
 
 body {
   background: var(--clr-main-bg);
-  overflow: hidden;
+  padding: var(--spacing);
 }
 section {
-  width: var(--fixed-width);
-  margin: 2rem auto;
+  width: var(--calc-width);
+  margin: var(--spacing) auto;
+  &:first-child {
+    --spacing: 4rem;
+    @include media($break-3) {
+      --spacing: 2rem;
+    }
+  }
   // Header
   &#header {
     @include flex;
@@ -31,15 +37,15 @@ section {
           letter-spacing: 0.5rem;
         }
         .switcher {
-          width: 5rem;
-          height: 1.65rem;
+          width: var(--switcher-width);
+          height: var(--switcher-height);
           border-radius: 2.5rem;
           background: var(--clr-toggle-bg);
           position: relative;
           cursor: pointer;
           .switch {
-            width: 1.175rem;
-            height: 1.175rem;
+            width: var(--switch-dims);
+            height: var(--switch-dims);
             border-radius: 1.5rem;
             background: var(--key-bg-2);
             position: absolute;
@@ -54,7 +60,7 @@ section {
   &#result {
     background: var(--clr-screen-bg);
     border-radius: var(--border);
-    padding: 3rem 3.5rem;
+    padding: var(--gap) var(--spacing);
     h1 {
       color: var(--txt-secondary);
       text-align: right;
@@ -64,10 +70,10 @@ section {
     background: var(--clr-toggle-bg);
     display: grid;
     place-content: center;
-    grid-template-rows: repeat(5, 6.25rem);
-    grid-template-columns: repeat(4, 10rem);
-    grid-gap: 2rem;
-    padding: 2rem 0;
+    grid-template-rows: repeat(5, var(--grid-rows));
+    grid-template-columns: repeat(4, var(--grid-columns));
+    grid-gap: var(--gap);
+    padding: var(--spacing) 0;
     border-radius: var(--border);
 
     & * {
@@ -82,7 +88,7 @@ section {
       grid-row: 5;
     }
 
-    // Make a mixin for backgrounds and shadow
+    // a mixin for backgrounds and shadow
     .basic-button {
       @include button(basic);
     }

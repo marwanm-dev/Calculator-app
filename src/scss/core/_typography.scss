@@ -2,20 +2,41 @@
 // Typography
 
 html {
-  font-size: 16px;
+  font-size: var(--font-size);
   font-family: var(--font-family);
   font-weight: 700;
 }
 
 h1 {
   font-size: 2.5rem;
+  @include media($break-1) {
+    font-size: 2.25rem;
+  }
+  @include media($break-2) {
+    font-size: 2rem;
+  }
+  @include media($break-4) {
+    font-size: 1.75rem;
+  }
+  @include media($break-5) {
+    font-size: 1.25rem;
+  }
 }
 h2 {
   font-size: 1.475rem;
+  @include media($break-5) {
+    font-size: 0.9rem;
+  }
 }
 h3 {
   font-size: 1.15rem;
+  @include media($break-5) {
+    font-size: 0.8rem;
+  }
 }
 p {
   font-size: 0.875rem;
+  @include media($break-5) {
+    font-size: 0.675rem;
+  }
 }

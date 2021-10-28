@@ -25,13 +25,6 @@ const defaultSetting = () => {
   [firstSection, secondSection] = ['', ''];
   [secondPhase, decimalInFirstPhase, decimalInSecondPhase] = [false];
   firstPhase = true;
-
-  //   firstSection = '';
-  //   secondSection = '';
-  //   firstPhase = true;
-  //   secondPhase = false;
-  //   decimalInFirstPhase = false;
-  //   decimalInSecondPhase = false;
 };
 const displayItem = itemToDisplay => {
   clearScreen();
