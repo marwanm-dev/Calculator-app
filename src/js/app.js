@@ -19,22 +19,22 @@ const resetInputs = () => {
   liveResult.textContent = 0;
   isAfterReset = true;
 };
-// const PointerEventsDecimal = state => eval(`decimalButton.classList.${state}('disabled')`);
-// const pointerEventsOperator = state =>{
-//   eval(`operatorButtons.forEach(button => button.classList.${state}('disabled'))`)}
+//! const PointerEventsDecimal = state => eval(`decimalButton.classList.${state}('disabled')`);
+//! const pointerEventsOperator = state =>{
+//!   eval(`operatorButtons.forEach(button => button.classList.${state}('disabled'))`)}
 const displayNum = (value, operator = false, decimal = false) => {
   let resultValue = value;
   if (operator) {
-    // pointerEventsOperator('add');
+    //! pointerEventsOperator('add');
     operatorPressed = true;
     resultValue = ` ${value} `;
     result.textContent = 0;
   } else {
-    // pointerEventsOperator('remove');
+    //! pointerEventsOperator('remove');
     operatorPressed = false;
   }
   if (decimal) {
-    // PointerEventsDecimal('add');
+    //! PointerEventsDecimal('add');
     decimalPressed = true;
   }
   if (isAfterReset) {
@@ -75,7 +75,7 @@ buttons.forEach(button => {
     if (button.classList.contains('operator-button')) {
       //* for operator buttons
       decimalPressed = false;
-      // PointerEventsDecimal('remove');
+      //! PointerEventsDecimal('remove');
 
       if (operatorPressed === false) {
         displayNum(button.dataset.value, true);
@@ -89,14 +89,14 @@ buttons.forEach(button => {
       }
       if (button.classList.contains('reset-button')) {
         decimalPressed = false;
-        // PointerEventsDecimal('remove');
+        /!/ PointerEventsDecimal('remove');
         resetInputs();
       }
     }
     if (button.classList.contains('equal-button')) {
       //* for equal button
       decimalPressed = false;
-      // PointerEventsDecimal('remove');
+      //! PointerEventsDecimal('remove');
       liveResult.textContent = result.textContent;
     }
   });
