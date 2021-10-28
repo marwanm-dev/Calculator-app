@@ -21,7 +21,7 @@
   </head>
   <body>
     <div class="container">
-      <section id="header">
+      <section class="header">
         <h3>calc</h3>
         <div class="theme">
           <p>Theme</p>
@@ -33,32 +33,36 @@
           </div>
         </div>
       </section>
-      <section id="result"><h1>Start!</h1></section>
-      <section id="input">
-        <button class="basic-button" data-value="7"><h1>7</h1></button>
-        <button class="basic-button" data-value="8"><h1>8</h1></button>
-        <button class="basic-button" data-value="9"><h1>9</h1></button>
-        <button class="special-button delete-button"><h1>DEL</h1></button>
-        <button class="basic-button" data-value="4"><h1>4</h1></button>
-        <button class="basic-button" data-value="5"><h1>5</h1></button>
-        <button class="basic-button" data-value="6"><h1>6</h1></button>
-        <button class="operator-button" data-value="+"><h1>+</h1></button>
-        <button class="basic-button" data-value="3"><h1>3</h1></button>
-        <button class="basic-button" data-value="2"><h1>2</h1></button>
-        <button class="basic-button" data-value="1"><h1>1</h1></button>
-        <button class="operator-button" data-value="-"><h1>-</h1></button>
-        <button class="basic-button decimal-button" data-value=".">
+      <!--? old <section class="result"><h1>Start!</h1></section> -->
+      <section class="output">
+        <h3 class="live-result"></h3>
+        <h1 class="result"></h1>
+      </section>
+      <section class="input">
+        <button class="btn basic-button" data-value="7"><h1>7</h1></button>
+        <button class="btn basic-button" data-value="8"><h1>8</h1></button>
+        <button class="btn basic-button" data-value="9"><h1>9</h1></button>
+        <button class="btn special-button delete-button"><h1>DEL</h1></button>
+        <button class="btn basic-button" data-value="4"><h1>4</h1></button>
+        <button class="btn basic-button" data-value="5"><h1>5</h1></button>
+        <button class="btn basic-button" data-value="6"><h1>6</h1></button>
+        <button class="btn operator-button" data-value="+"><h1>+</h1></button>
+        <button class="btn basic-button" data-value="3"><h1>3</h1></button>
+        <button class="btn basic-button" data-value="2"><h1>2</h1></button>
+        <button class="btn basic-button" data-value="1"><h1>1</h1></button>
+        <button class="btn operator-button" data-value="-"><h1>-</h1></button>
+        <button class="btn basic-button decimal-button" data-value=".">
           <h1>.</h1>
         </button>
-        <button class="basic-button" data-value="0"><h1>0</h1></button>
-        <button class="operator-button" data-value="/"><h1>/</h1></button>
-        <button class="operator-button" data-value="*">
+        <button class="btn basic-button" data-value="0"><h1>0</h1></button>
+        <button class="btn operator-button" data-value="/"><h1>/</h1></button>
+        <button class="btn operator-button" data-value="*">
           <h1>&times;</h1>
         </button>
-        <button class="equal-button for-grid" data-value="=">
+        <button class="btn equal-button for-grid" data-value="=">
           <h1>=</h1>
         </button>
-        <button class="special-button reset-button"><h1>RESET</h1></button>
+        <button class="btn special-button reset-button"><h1>RESET</h1></button>
       </section>
     </div>
   </body>

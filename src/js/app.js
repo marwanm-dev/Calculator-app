@@ -1,123 +1,105 @@
-// Variables
-const basicButtons = document.querySelectorAll('.basic-button');
-const operatorButtons = document.querySelectorAll('.operator-button');
-const deleteButton = document.querySelector('.delete-button');
-const resetButton = document.querySelector('.reset-button');
-const equalButton = document.querySelector('.equal-button');
-const displayScreen = document.querySelector('#result');
+//? Variables
+// -outputs
+const output = document.querySelector('.output');
+const liveResult = output.querySelector('h3');
+const result = output.querySelector('h1');
 
-// Flags
-let firstPhase,
-  secondPhase,
-  firstSection,
-  secondSection,
-  decimalInFirstPhase,
-  decimalInSecondPhase,
-  operator,
-  result,
-  previousAnswer;
+// -inputs
+const input = document.querySelector('.input');
+const buttons = input.querySelectorAll('button.btn');
+const operatorButtons = input.querySelectorAll('.operator-button');
+const decimalButton = input.querySelector('.decimal-button');
 
-// Functions
-const clearScreen = () => {
-  displayScreen.innerHTML = '';
+//? Flags
+let [isAfterReset, operatorPressed, decimalPressed] = [false];
+
+//? Functions
+const resetInputs = () => {
+  result.textContent = 0;
+  liveResult.textContent = 0;
+  isAfterReset = true;
 };
-const defaultSetting = () => {
-  [firstSection, secondSection] = ['', ''];
-  [secondPhase, decimalInFirstPhase, decimalInSecondPhase] = [false];
-  firstPhase = true;
-};
-const displayItem = itemToDisplay => {
-  clearScreen();
-  const h1 = document.createElement('h1');
-  h1.textContent = itemToDisplay;
-  displayScreen.appendChild(h1);
-  if (itemToDisplay == previousAnswer) {
-    firstSection = previousAnswer;
-    firstPhase = false;
-    secondPhase = true;
-  }
-};
-
-// EventListeners
-basicButtons.forEach(basicButton => {
-  defaultSetting();
-  basicButton.addEventListener('click', event => {
-    if (firstPhase && !secondPhase) {
-      firstSection += event.currentTarget.dataset.value;
-      if (basicButton.classList.contains('decimal-button')) {
-        firstSection.includes('.') && decimalInFirstPhase === false
-          ? (decimalInFirstPhase = true)
-          : firstSection.includes('.') && decimalInFirstPhase === true
-          ? (firstSection = firstSection.slice(0, -1))
-          : console.log('error');
-      }
-
-      displayItem(firstSection);
-    } else if (!firstPhase && secondPhase) {
-      secondSection += event.currentTarget.dataset.value;
-      if (basicButton.classList.contains('decimal-button')) {
-        secondSection.includes('.') && decimalInSecondPhase === false
-          ? (decimalInSecondPhase = true)
-          : secondSection.includes('.') && decimalInSecondPhase === true
-          ? (secondSection = secondSection.slice(0, -1))
-          : console.log('error');
-      }
-      displayItem(secondSection);
-    }
-  });
-});
-operatorButtons.forEach(operatorButton => {
-  operatorButton.addEventListener('click', event => {
-    operator = event.currentTarget.dataset.value;
-    firstPhase = false;
-    secondPhase = true;
-    if (displayScreen.innerHTML == '') {
-      displayItem(operator);
-    } else {
-      previousAnswer = displayScreen.textContent;
-      displayItem(operator);
-      displayItem(previousAnswer);
-    }
-  });
-});
-equalButton.addEventListener('click', event => {
-  try {
-    result = eval(firstSection + operator + secondSection);
-  } catch {
-    result = 'There 1s an err0r';
-  }
-  if (displayScreen.innerHTML == '') {
-    displayItem(result);
+// const PointerEventsDecimal = state => eval(`decimalButton.classList.${state}('disabled')`);
+// const pointerEventsOperator = state =>{
+//   eval(`operatorButtons.forEach(button => button.classList.${state}('disabled'))`)}
+const displayNum = (value, operator = false, decimal = false) => {
+  let resultValue = value;
+  if (operator) {
+    // pointerEventsOperator('add');
+    operatorPressed = true;
+    resultValue = ` ${value} `;
+    result.textContent = 0;
   } else {
-    defaultSetting();
-    displayItem(result);
+    // pointerEventsOperator('remove');
+    operatorPressed = false;
   }
-});
-deleteButton.addEventListener('click', () => {
-  if (firstPhase && !secondPhase) {
-    firstSection = firstSection.slice(0, -1);
-    displayItem(firstSection);
-  } else if (!firstPhase && secondPhase) {
-    secondSection = secondSection.slice(0, -1);
-    displayItem(secondSection);
+  if (decimal) {
+    // PointerEventsDecimal('add');
+    decimalPressed = true;
   }
-});
-resetButton.addEventListener('click', () => {
-  clearScreen();
-  defaultSetting();
-  displayItem('Start!');
-});
+  if (isAfterReset) {
+    liveResult.textContent = resultValue;
+    isAfterReset = false;
+  } else {
+    liveResult.textContent += resultValue;
+  }
+  if (eval(value) !== undefined) displayResult(liveResult.textContent);
+};
+const displayResult = value => {
+  result.textContent = eval(value);
+};
+const deleteNum = () => {
+  let sliceChars = -1;
+  const lastChar = liveResult.textContent.slice(-1);
+  if (lastChar === ' ') sliceChars = -3;
+  if (liveResult.textContent.length > 1)
+    liveResult.textContent = liveResult.textContent.slice(0, sliceChars);
+  else {
+    resetInputs();
+  }
+  displayResult(liveResult.textContent);
+};
 
-const allButtons = document.querySelectorAll('#input > *');
-allButtons.forEach(btn => {
-  btn.addEventListener('click', e => {
-    const thisButton = e.currentTarget;
-    thisButton.style.filter = 'contrast(1.75)';
-    setTimeout(() => {
-      thisButton.style.filter = 'contrast(0.25)';
-      setTimeout(() => {
-        thisButton.style.filter = 'contrast(1)';
-      }, 34.375);
-    }, 137.5);
+// ? EventListeners
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (button.classList.contains('basic-button')) {
+      //* for basic buttons
+      let decimalCondition = button.classList.contains('decimal-button') ? true : false;
+      if (decimalCondition) {
+        displayNum(button.dataset.value, false, true);
+      } else {
+        displayNum(button.dataset.value);
+      }
+    }
+    if (button.classList.contains('operator-button')) {
+      //* for operator buttons
+      decimalPressed = false;
+      // PointerEventsDecimal('remove');
+
+      if (operatorPressed === false) {
+        displayNum(button.dataset.value, true);
+      }
+      operatorPressed = true;
+    }
+    if (button.classList.contains('special-button')) {
+      //* for special buttons
+      if (button.classList.contains('delete-button')) {
+        deleteNum();
+      }
+      if (button.classList.contains('reset-button')) {
+        decimalPressed = false;
+        // PointerEventsDecimal('remove');
+        resetInputs();
+      }
+    }
+    if (button.classList.contains('equal-button')) {
+      //* for equal button
+      decimalPressed = false;
+      // PointerEventsDecimal('remove');
+      liveResult.textContent = result.textContent;
+    }
   });
 });
+
+resetInputs();

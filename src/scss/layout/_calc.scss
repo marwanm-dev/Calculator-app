@@ -16,7 +16,7 @@ section {
     }
   }
   // Header
-  &#header {
+  &.header {
     @include flex;
     h3 {
       color: var(--txt-secondary);
@@ -57,16 +57,23 @@ section {
       }
     }
   }
-  &#result {
+  &.output {
     background: var(--clr-screen-bg);
     border-radius: var(--border);
     padding: var(--gap) var(--spacing);
-    h1 {
-      color: var(--txt-secondary);
+    h1,
+    h3 {
       text-align: right;
     }
+    h3 {
+      color: var(--txt-primary);
+    }
+    h1 {
+      color: var(--txt-secondary);
+      margin-top: 0.5rem;
+    }
   }
-  &#input {
+  &.input {
     background: var(--clr-toggle-bg);
     display: grid;
     place-content: center;
@@ -88,6 +95,11 @@ section {
       grid-row: 5;
     }
 
+    .btn.disabled {
+      pointer-events: none;
+      box-shadow: none;
+      opacity: 0.9;
+    }
     // a mixin for backgrounds and shadow
     .basic-button {
       @include button(basic);
