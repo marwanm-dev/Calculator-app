@@ -8,7 +8,7 @@
 
 - Theme is database linked
 
-- working on it..
+- Calculate as much numbers as you want
 
 # Live
 
