@@ -1,0 +1,95 @@
+// Variables
+// # Colors
+
+// # Typography
+
+// # Others
+
+// # Breakpoints
+
+// # Custom Prop
+:root {
+  // __________THEMES__________
+  // -----THEME-1
+  &.theme-1 {
+    // Backgrounds
+    --clr-main-bg: hsl(222, 26%, 31%);
+    --clr-toggle-bg: hsl(223, 31%, 20%);
+    --clr-screen-bg: hsl(224, 36%, 15%);
+
+    // Keys
+
+    // ---TYPE-1
+    --key-bg-1: hsl(225, 21%, 49%);
+    --key-shadow-1: hsl(224, 28%, 35%);
+
+    // ---TYPE-2
+    --key-bg-2: hsl(6, 63%, 50%);
+    --key-shadow-2: hsl(6, 70%, 34%);
+
+    // ---TYPE-3
+    --key-bg-3: hsl(30, 25%, 89%);
+    --key-shadow-3: hsl(28, 16%, 65%);
+
+    // Text
+    --txt-primary: hsl(221, 14%, 31%);
+    --txt-secondary: hsl(0, 0%, 100%);
+  }
+  // -----THEME-2
+  &.theme-2 {
+    // Backgrounds
+    --clr-main-bg: hsl(0, 0%, 90%);
+    --clr-toggle-bg: hsl(0, 5%, 81%);
+    --clr-screen-bg: hsl(0, 0%, 93%);
+
+    // Keys
+
+    // ---TYPE-1
+    --key-bg-1: hsl(185, 42%, 37%);
+    --key-shadow-1: hsl(185, 58%, 25%);
+    // ---TYPE-2
+    --key-bg-2: hsl(25, 98%, 40%);
+    --key-shadow-2: hsl(25, 99%, 27%);
+
+    // ---TYPE-3
+    --key-bg-3: hsl(45, 7%, 89%);
+    --key-shadow-3: hsl(35, 11%, 61%);
+
+    // Text
+    --txt-secondary: hsl(60, 10%, 19%);
+    --txt-primary: hsl(60, 10%, 19%);
+  }
+  // -----THEME-3
+  &.theme-3 {
+    // Backgrounds
+    --clr-main-bg: hsl(268, 75%, 9%);
+    --clr-toggle-bg: hsl(268, 71%, 12%);
+    --clr-screen-bg: hsl(268, 71%, 12%);
+
+    // Keys
+
+    // ---TYPE-1
+    --key-bg-1: hsl(281, 89%, 26%);
+    --key-shadow-1: hsl(285, 91%, 52%);
+
+    // ---TYPE-2
+    --key-bg-2: hsl(176, 100%, 44%);
+    --key-shadow-2: hsl(177, 92%, 70%);
+
+    // ---TYPE-3
+    --key-bg-3: hsl(268, 47%, 21%);
+    --key-shadow-3: hsl(290, 70%, 36%);
+
+    // Text
+    --txt-secondary: hsl(52, 100%, 62%);
+    --txt-primary: hsl(52, 100%, 62%);
+  }
+
+  // __________TYPOGRAPHY__________
+  --font-family: 'Spartan', sans-serif; // 700 , numbers
+  --font-size: 32px;
+  // __________OTHER__________
+  --fixed-width: 51.75rem;
+  --border: 0.6rem;
+  --transition: all 0.275s;
+}
