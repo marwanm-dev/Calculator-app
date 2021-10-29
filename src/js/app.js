@@ -43,7 +43,8 @@ const displayNum = (value, operator = false, decimal = false) => {
   } else {
     liveResult.textContent += resultValue;
   }
-  if (eval(value) !== undefined) displayResult(liveResult.textContent);
+  //! if (eval(value) !== undefined) displayResult(liveResult.textContent);
+  displayResult(liveResult.textContent);
 };
 const displayResult = value => {
   result.textContent = eval(value);
