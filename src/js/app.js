@@ -89,7 +89,7 @@ buttons.forEach(button => {
       }
       if (button.classList.contains('reset-button')) {
         decimalPressed = false;
-        /!/ PointerEventsDecimal('remove');
+        //! PointerEventsDecimal('remove');
         resetInputs();
       }
     }
