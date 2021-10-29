@@ -44,7 +44,7 @@ const displayNum = (value, operator = false, decimal = false) => {
     liveResult.textContent += resultValue;
   }
   //! if (eval(value) !== undefined) displayResult(liveResult.textContent);
-  //! displayResult(liveResult.textContent);
+  displayResult(liveResult.textContent);
 };
 const displayResult = value => {
   result.textContent = eval(value);
@@ -58,7 +58,7 @@ const deleteNum = () => {
   else {
     resetInputs();
   }
-  //! displayResult(liveResult.textContent);
+  displayResult(liveResult.textContent);
 };
 
 // ? EventListeners
