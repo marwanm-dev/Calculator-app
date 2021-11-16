@@ -12,7 +12,7 @@
 
 # Live
 
-- https://marodev343-calculator-app.pages.dev/
+- https://marodevv-calculator-app.pages.dev/
 
 # Credit
 
