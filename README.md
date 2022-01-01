@@ -6,9 +6,7 @@
 
 - Additional stuff (hovers, animations, effects, etc...)
 
-- Theme linked with database
-
-- Calculate as much numbers as you want
+- Theme database linked
 
 # Live
 

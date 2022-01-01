@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as *;
 // Mixins
+@use './variables' as *;
 
 @mixin flex($align: true) {
   display: flex;
@@ -32,6 +32,7 @@
   }
   box-shadow: 0 0.2rem 0 0 $shadow-clr;
   outline: none;
+  border: 0;
   cursor: pointer;
   text-align: center;
 

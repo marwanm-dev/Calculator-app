@@ -4,7 +4,6 @@
     @content;
   }
 }
-
 // # Breakpoints
 $break-1: 700;
 $break-2: 640;
@@ -12,9 +11,9 @@ $break-3: 540;
 $break-4: 508;
 $break-5: 440;
 
-// # Custom Prop
+// # Custom Props
 :root {
-  // __________THEMES__________
+  // # Themes
   // -----THEME-1
   &.theme-1 {
     // Backgrounds
@@ -90,11 +89,11 @@ $break-5: 440;
     --txt-primary: hsl(52, 100%, 62%);
   }
 
-  // __________TYPOGRAPHY__________
+  // # Typography
   --font-family: 'Spartan', sans-serif; // 700 , numbers
   --font-size: 16px;
 
-  // __________OTHER__________
+  // # Others
   --calc-width: 38rem;
   --switch-dims: 1.175rem;
   --switcher-width: 5rem;
@@ -104,9 +103,11 @@ $break-5: 440;
   --gap: 1.5rem;
   --grid-rows: 5rem;
   --grid-columns: 7.5rem;
+
+  // # Transitions
   --transition: all 0.275s;
 
-  // __________MEDIA__________
+  // # Media
 
   @include media($break-1) {
     --calc-width: 35rem;
