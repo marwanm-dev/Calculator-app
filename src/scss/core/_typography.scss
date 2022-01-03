@@ -3,44 +3,70 @@
 
 // # Basics
 html {
-  font-size: var(--font-size);
+  font-size: $font__size;
 }
 body {
-  font-family: var(--font-family);
+  font-family: $font__family;
   font-weight: 700;
 }
 
 // # Headings | paragraphs | etc..
 h1 {
+  color: var(--txt-secondary);
   font-size: 2.5rem;
-  @include media($break-1) {
+  text-align: center;
+  @include media($br-1) {
     font-size: 2.25rem;
   }
-  @include media($break-2) {
+  @include media($br-2) {
     font-size: 2rem;
   }
-  @include media($break-4) {
-    font-size: 1.75rem;
+  @include media($br-3) {
+    font-size: 1.5rem;
   }
-  @include media($break-5) {
-    font-size: 1.25rem;
+  @include media($br-4) {
+    font-size: 1.35rem;
+  }
+  @include media($br-5) {
+    font-size: 1.15rem;
   }
 }
 h2 {
   font-size: 1.475rem;
-  @include media($break-5) {
+  @include media($br-5) {
     font-size: 0.9rem;
   }
 }
 h3 {
+  color: var(--txt-primary);
   font-size: 1.15rem;
-  @include media($break-5) {
+  text-align: right;
+  @include media($br-5) {
     font-size: 0.8rem;
   }
 }
+.header {
+  h3 {
+    color: var(--txt-secondary);
+  }
+}
 p {
+  text-transform: uppercase;
+  color: var(--txt-secondary);
   font-size: 0.875rem;
-  @include media($break-5) {
+  @include media($br-5) {
     font-size: 0.675rem;
+  }
+}
+
+// # Specifics
+.output {
+  h1 {
+    text-align: right;
+  }
+}
+.switch-container {
+  p {
+    letter-spacing: 0.5rem;
   }
 }

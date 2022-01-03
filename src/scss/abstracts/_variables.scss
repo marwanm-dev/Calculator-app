@@ -1,15 +1,20 @@
 // Variables
-@mixin media($size) {
-  @media (max-width: $size + px) {
-    @content;
-  }
-}
+
+// # Typography
+$font__size: 16px;
+$font__family: 'Spartan', sans-serif; // 700 , numbers
+
+// # Transitions
+$dur: 0.275s;
+$eff: cubic-bezier(0.65, 0.05, 0.36, 1); // easeInOutCubic
+$tr: $dur $eff;
+
 // # Breakpoints
-$break-1: 700;
-$break-2: 640;
-$break-3: 540;
-$break-4: 508;
-$break-5: 440;
+$br-1: 700;
+$br-2: 640;
+$br-3: 540;
+$br-4: 508;
+$br-5: 440;
 
 // # Custom Props
 :root {
@@ -90,8 +95,6 @@ $break-5: 440;
   }
 
   // # Typography
-  --font-family: 'Spartan', sans-serif; // 700 , numbers
-  --font-size: 16px;
 
   // # Others
   --calc-width: 38rem;
@@ -103,43 +106,4 @@ $break-5: 440;
   --gap: 1.5rem;
   --grid-rows: 5rem;
   --grid-columns: 7.5rem;
-
-  // # Transitions
-  --transition: all 0.275s;
-
-  // # Media
-
-  @include media($break-1) {
-    --calc-width: 35rem;
-    --grid-rows: 4rem;
-    --grid-columns: 6.5rem;
-  }
-  @include media($break-2) {
-    --calc-width: 30rem;
-    --grid-rows: 3rem;
-    --grid-columns: 5.5rem;
-  }
-  @include media($break-3) {
-    --switcher-width: 4.75rem;
-    --switcher-height: 1.35rem;
-    --switch-dims: 0.9rem;
-    --calc-width: 27rem;
-    --grid-rows: 2.75rem;
-    --grid-columns: 4.5rem;
-  }
-  @include media($break-4) {
-    --calc-width: 23rem;
-    --grid-rows: 2.5rem;
-    --grid-columns: 3.5rem;
-  }
-  @include media($break-5) {
-    --switcher-width: 4.5rem;
-    --switcher-height: 1rem;
-    --switch-dims: 0.55rem;
-    --spacing: 1.5rem;
-    --calc-width: 17.5rem;
-    --grid-rows: 2rem;
-    --grid-columns: 3rem;
-    --gap: 1.25rem;
-  }
 }

@@ -1,12 +1,19 @@
 // Mixins
 @use './variables' as *;
 
-@mixin flex($align: true) {
+@mixin flex-row($just: initial, $align: initial, $gap: initial) {
   display: flex;
-  justify-content: space-between;
-  @if $align == true {
-    align-items: center;
-  }
+  flex-direction: row;
+  justify-content: $just;
+  align-items: $align;
+  gap: $gap;
+}
+@mixin flex-col($just: initial, $align: initial, $gap: initial) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $just;
+  align-items: $align;
+  gap: $gap;
 }
 @mixin button($type) {
   // Checks the type and assigning its colors
@@ -25,18 +32,51 @@
     $bg-clr: var(--key-bg-2);
     $shadow-clr: var(--key-shadow-2);
   }
-
   background: $bg-clr;
   h1 {
     color: $txt-clr;
   }
   box-shadow: 0 0.2rem 0 0 $shadow-clr;
-  outline: none;
-  border: 0;
-  cursor: pointer;
   text-align: center;
-
+  @include btn-reset;
   &:hover {
     box-shadow: 0 0 0 0, 0 0 1.15rem 0.25rem $shadow-clr inset;
   }
 }
+// Include on inputs:not([type="button"],[type="submit"]) elements
+@mixin input-reset {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+}
+// Include on input[type="button"], input[type="submit"], button elements
+@mixin btn-reset {
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+}
+@mixin list-reset {
+  padding: 0;
+  list-style: none;
+}
+@mixin pseudo-reset {
+  content: '';
+  position: absolute;
+}
+// Media query
+@mixin media($max__width) {
+  @media (max-width: #{$max__width}px) {
+    @content;
+  }
+}
+/*
+* Default breakpoints
+320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+1025px — 1200px: Desktops, large screens.
+1201px and more — Extra large screens, TV.
+*/
