@@ -1,12 +1,11 @@
 # Calculator-app
 
-- Created with Html Sass Javascript using *vite*🔥
+- Fully responsive & animated
 
-- Fully responsive and animated
-
-- Additional stuff (hovers, animations, effects, etc...)
-
-- Theme database linked
+- Tech used with *vite*🔥:
+  Html
+  Sass
+  Javascript
 
 # Live
 
@@ -16,4 +15,3 @@
 
 - Inspired by Frontend Mentor
 
-- Website: https://frontendmentor.io
