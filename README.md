@@ -9,7 +9,7 @@
 
 # Live
 
-- https://marodevv-calculator-app.pages.dev/
+- https://marodevv-calculator-app.vercel.app
 
 # Credit
 
