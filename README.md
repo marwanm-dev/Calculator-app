@@ -10,7 +10,7 @@
 
 ## Live
 
-> https://marwanmodev-calculator-app.vercel.app
+> https://marwanm-calculator-app.vercel.app
 
 ## Credit
 
